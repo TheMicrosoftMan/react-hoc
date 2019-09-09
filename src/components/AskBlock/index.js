@@ -1,18 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import withHover from "../../hoc/withHover";
 
 const AskBlock = props => {
-  const [isShowToolTip, setShowToolTip] = useState(false);
-
-  return (
-    <div
-      className="container"
-      onMouseOver={() => setShowToolTip(true)}
-      onMouseLeave={() => setShowToolTip(false)}
-    >
-      <div className="Ask">?</div>
-      {isShowToolTip && <div className="ToolTip">{props.tootTipText}</div>}
-    </div>
-  );
+  return <div className="Ask">?</div>;
 };
 
-export default AskBlock;
+export default withHover(AskBlock);
