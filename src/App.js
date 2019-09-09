@@ -1,24 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import Input from "./components/Input";
+import AskBlock from "./components/AskBlock";
+import Logo from "./components/Logo";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Input tootTipText="ToolTip from input" />
+      <AskBlock tootTipText="ToolTip from ask block" />
+      <Logo tootTipText="ToolTip from logo" />
     </div>
   );
 }
