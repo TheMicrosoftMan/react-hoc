@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import withHover from "../../hoc/withHover";
 
-const AskBlock = props => {
-  const [isShowToolTip, setShowToolTip] = useState(false);
+class AskBlock extends React.Component {
+  state = {
+    generatedError: false
+  };
 
-  return (
-    <div
-      className="container"
-      onMouseOver={() => setShowToolTip(true)}
-      onMouseLeave={() => setShowToolTip(false)}
-    >
-      <div className="Ask">?</div>
-      {isShowToolTip && <div className="ToolTip">{props.tootTipText}</div>}
-    </div>
-  );
-};
+  handleClick = () => {
+    if (Math.random() > 0.5) {
+      this.setState({ generatedError: true });
+    }
+  };
 
-export default AskBlock;
+  render() {
+    if (this.state.generatedError) {
+      throw new Error("I crashed!");
+    }
+    return (
+      <div className="Ask" onClick={this.handleClick}>
+        ?
+      </div>
+    );
+  }
+}
+
+export default withHover(AskBlock);
